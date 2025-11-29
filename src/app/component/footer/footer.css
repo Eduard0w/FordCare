@@ -1,9 +1,9 @@
 footer {
   background-color: black;
-  width: 98.9vw;
+  /* width: 98.9vw; */
   color: white;
-  bottom: 0;
-  margin-top: 20px;
+  /* bottom: 0; */
+  /* margin-top: 20px; */
   padding: 20px 5px;
   display: flex;
   justify-content: space-around;

@@ -1,13 +1,159 @@
-<body>
+<!-- <app-header></app-header>
+<section class="apresentation">
+  <div class="text">
+    <h1 class="text-5xl font-bold">Monitore o seu carro com facilidade!</h1>
+    <h3 class="mt-2">
+      Monitoramento inteligente e manutenção preventiva para manter seu veículo Ford <br> sempre em perfeito estado
+    </h3>
+  </div>
+  <button>Entrar</button>
+</section>
+
+<main>
+
+</main>
+
+<app-footer></app-footer> -->
+
+<div class="page-wrapper">
+
   <app-header></app-header>
-  <section class="apresentation">
-    <div class="text">
-      <h1>Monitore os carros da suas frota com facilidade!</h1>
-      <h3>
-        Monitoramento inteligente e manutenção preventiva para manter seu veículo Ford sempre em perfeito estado
-      </h3>
-    </div>
-    <button>Entrar</button>
-  </section>
+
+  <main class="content">
+
+    <!-- <section class="apresentation">
+      <div class="text">
+        <h1 class="text-5xl font-bold">Monitore o seu carro com facilidade!</h1>
+        <h3 class="mt-2">
+          Monitoramento inteligente e manutenção preventiva para manter seu veículo Ford <br> sempre em perfeito estado
+        </h3>
+      </div>
+      <button>Entrar</button>
+    </section> -->
+    <section class="hero-section">
+
+      <div id="bgCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-pause="false">
+        <div class="carousel-inner">
+
+          <div class="carousel-item active" data-bs-interval="3000">
+            <img src="BG_img1.jpg" class="d-block w-100" alt="Fundo 1">
+          </div>
+
+          <div class="carousel-item" data-bs-interval="3000">
+            <img src="BG_img2.jpg" class="d-block w-100" alt="Fundo 2">
+          </div>
+
+          <!-- Encontrar uma imagen melhor para essa div aqui -->
+          <div class="carousel-item" data-bs-interval="3000">
+            <img src="BG_img3.jpg" class="d-block w-100" alt="Fundo 3">
+          </div>
+
+        </div>
+      </div>
+
+      <div class="overlay"></div>
+
+      <div class="content-container">
+        <div class="text">
+          <h1 class="text-5xl font-bold">Monitore o seu carro com facilidade!</h1>
+          <h3 class="mt-2">
+            Monitoramento inteligente e manutenção preventiva para manter seu veículo Ford <br> sempre em perfeito estado
+          </h3>
+        </div>
+        <button>Entrar</button>
+      </div>
+
+    </section>
+    <!-- <div id="carouselExampleIndicators" class="carousel slide">
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+      </div>
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="BG_img2.jpg" class="d-block h-96 w-full" alt="...">
+        </div>
+        <div class="carousel-item">
+          <img src="BG_img2.jpg" class="d-block h-96 w-full" alt="...">
+        </div>
+        <div class="carousel-item">
+          <img src="BG_img2.jpg" class="d-block h-96 w-full" alt="...">
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div> -->
+
+    <section class="mt-5 flex flex-col items-center justify-center">
+      <h2 class="text-3xl text-azul-texto font-bold">FordCare+ está aqui para ajudar você!</h2>
+      <p>Ele foi desenvolvido para proprietários de Ford que desejam manter seu veículo em perfeitas condições, mesmo sem os recursos de conectividade do FordPass.</p>
+
+      <div class="grid grid-cols-3 gap-10 mb-2">
+        <div class="infoView">
+          <div class="img">
+            <span class="material-symbols-outlined text-5xl text-azul-icon">
+              sensors
+            </span>
+            <!-- <img src="" alt="Imagem"> -->
+          </div>
+          <h3 class="text-5xl">Monitoramento Manual Inteligente</h3>
+          <p>Registre dados do seu veículo de forma simples e receba análises precisas sobre sua condição.</p>
+        </div>
+        <div class="infoView">
+          <div class="img">
+            <span class="material-symbols-outlined text-5xl text-azul-icon">
+              health_metrics
+            </span>
+            <!-- <img src="" alt="Imagem"> -->
+          </div>
+          <h3>Barra de Saúde do Veículo</h3>
+          <p>Visualize em tempo real a saúde geral do seu Ford com nossa barra de status dinâmica.</p>
+        </div>
+        <div class="infoView">
+          <div class="img">
+            <span class="material-symbols-outlined text-5xl text-azul-icon">
+              reset_wrench
+            </span>
+            <!-- <img src="" alt="Imagem"> -->
+          </div>
+          <h3>Recomendações Personalizadas</h3>
+          <p>Receba sugestões de manutenção baseadas no histórico e condição atual do seu veículo.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="mt-5 flex flex-col justify-center">
+      <h1 class="flex justify-center text-3xl text-azul-texto font-bold">Como funciona?</h1>
+
+      <div class="grid grid-rows-4 gap-5">
+        <div class="passos">
+          Passo 1
+        </div>
+        <div class="passos">
+          Passo 2
+        </div>
+        <div class="passos">
+          Passo 3
+        </div>
+        <div class="passos">
+          Passo 4
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h1>Venha cuidar do seu veiculo!</h1>
+      <button>Cadastre-se!</button>
+    </section>
+  </main>
+
   <app-footer></app-footer>
-</body>
+
+</div>
