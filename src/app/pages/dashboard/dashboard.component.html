@@ -1,0 +1,86 @@
+<div>
+  <app-header></app-header>
+
+  <!-- TODO: Caso o usuario não esteja logado a tela tera algumas diferenças. O usuario não podera fazer nada se não cadastrar o veiculo. -->
+  <section class="max-w-[1100px] m-auto">
+    <div class="">
+      <div>
+        <h1 class="text-4xl font-semibold">
+          Bem-vindo, .... !</h1>
+
+        <div class="mt-3 p-4 border rounded-md w-full">
+          <p class="text-xl font-semibold">Confira como está a saúde de seu ....</p>
+          <div class="flex justify-center">
+            <h1 class="text-6xl text-gray-600 my-3">
+              <!-- 50 á 70 -> text-yellow-500 -->
+              0
+            </h1>
+          </div>
+          <div>
+            <div class=" w-full h-6 rounded-xl relative bg-gray-200">
+              <!-- TODO: Calculo para saude do carro deve ser feita e colocada aqui para a barra se adaptar a ela -->
+              <div class="w-0 bg-yellow-300 h-full rounded-full absolute top-0 left-0"></div>
+            </div>
+            <div class="grid grid-cols-3 text-center mt-1">
+              <p class="text-left">0</p>
+              <p>50</p>
+              <p class="text-right">100</p>
+            </div>
+            <div>
+              <!-- TODO: Esse texto deve ser baseando com a saude do carro. (Seu veiculo está saudavel; Atenção; Seu veiculo precisa de atenção) -->
+              <h3 class="text-2xl text-gray-600 mt-2">...</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- TODO: Visual util ao usuario. Deve mostrar quilometragem de seu carro, A quanto tempo a ultima revisão foi feita, alertas e recomendações -->
+    <div class="mt-2 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 w-full">
+      <div class="infosCar">
+        <div class="">
+          <h1 class="text-5xl font-bold text-azul-texto">-</h1>
+        </div>
+        <div class="flex items-center gap-1 text-gray-500">
+          <h3 class="font-bold">Quilometros</h3>
+          <p>Rodados</p>
+        </div>
+      </div>
+      <div class="infosCar">
+        <div class="text-5xl font-bold text-azul-texto">
+          -
+        </div>
+        <p class=" text-gray-500">
+          Revisão
+        </p>
+      </div>
+      <div class="infosCar">
+        <div class="text-5xl font-bold text-gray-600">
+          0
+        </div>
+        <p class="text-gray-500">
+          Alertas
+        </p>
+      </div>
+      <div class="infosCar right-0">
+        <div class="text-5xl font-bold text-azul-texto">
+          -
+        </div>
+        <p class="text-gray-500">
+          Recomendações
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="max-w-[1100px] m-auto">
+    <div class="mt-5">
+      <h3>Informações</h3>
+      <div class="gap-8 mt-3 p-4 border rounded-md w-64 hover:border-azul-icon">
+        <div>
+          <img src="car.svg" alt="">
+        </div>
+        <h1 class="text-1xl">Meus Veículos</h1>
+      </div>
+    </div>
+  </section>
+</div>

@@ -1,7 +1,13 @@
 <header>
-  <div class="logo">FordCare+</div>
+  <div class="logo cursor-pointer" (click)="irParaHome()">FordCare+</div>
   <nav>
-    Sobre
-    <button>Login</button>
+    <a href="">
+      Dashboard
+    </a>
+    <a href="">
+      Meus veiculos
+    </a>
+    <!-- TODO: Botão de login deve mudar para um botão de sair da conta quando o usuario estiver logado -->
+    <button (click)="irParaLogin()">Login</button>
   </nav>
 </header>

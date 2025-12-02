@@ -1,0 +1,20 @@
+.infosCar {
+  display: flex;
+  flex-direction: column;
+  /* Use border do tailwind no HTML ou defina uma cor parecida com a de cima */
+  border: 1px solid #e5e7eb; /* #e5e7eb é a cor padrão do border-gray-200 do Tailwind */
+  padding: 1rem;
+  border-radius: 0.375rem; /* 6px (equivale ao rounded-md da caixa de cima) */
+  justify-content: space-between;
+  height: 128px;
+  width: 100%; /* Garante que preencha o espaço do grid */
+  background-color: white;
+  /* display: flex;
+  flex-direction: column;
+  border: 0.5px solid grey; */
+  /* max-width: 150px; */
+  /* padding: 1rem;
+  border-radius: 10px;
+  justify-content: space-between;
+  height: 128px; */
+}
