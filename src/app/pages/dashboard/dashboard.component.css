@@ -7,14 +7,24 @@
   border-radius: 0.375rem; /* 6px (equivale ao rounded-md da caixa de cima) */
   justify-content: space-between;
   height: 128px;
-  width: 100%; /* Garante que preencha o espaço do grid */
+  width: 100%;
   background-color: white;
-  /* display: flex;
-  flex-direction: column;
-  border: 0.5px solid grey; */
-  /* max-width: 150px; */
-  /* padding: 1rem;
-  border-radius: 10px;
-  justify-content: space-between;
-  height: 128px; */
+}
+
+.bg-azul {
+  color: #1f6feb;
+}
+
+/* utilitários rápidos para os exemplos de classes utilizados */
+.bg-card {
+  background: #fff;
+}
+.text-card-foreground {
+  color: #111827;
+}
+.shadow-card {
+  box-shadow: 0 4px 14px rgba(2, 6, 23, 0.08);
+}
+.bg-azul-icon {
+  background: linear-gradient(90deg, #2563eb, #1d4ed8);
 }
