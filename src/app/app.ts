@@ -1,7 +1,8 @@
+import * as AOS from 'aos'; // Import AOS
 import { Component, OnInit, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { HomeComponent } from './pages/home/home.component';
-import AOS from 'aos';
+
 import { LoginComponent } from './pages/login/login.component';
 
 @Component({
