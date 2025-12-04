@@ -5,7 +5,7 @@ import { VeiculoCadastrado } from '../../models/veiculo-cadastrado';
 import { CarService } from '../../services/car.service';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { Footer } from "../../component/footer/footer";
+import { Footer } from '../../component/footer/footer';
 
 @Component({
   selector: 'app-dashboard',
@@ -20,7 +20,6 @@ export class DashboardComponent implements OnInit {
   textoSaude = '';
   kmInput: number | null = null;
   recomendacoes: { tipo: string; titulo: string; detalhe?: string }[] = [];
-
 
   constructor(private carService: CarService) {}
 
@@ -67,38 +66,31 @@ export class DashboardComponent implements OnInit {
 }
 
 export class proximasAcoes {
-  recomendacoes = [
-    {
-      titulo: 'Troca de óleo',
-      detalhe: 'em 350 km',
-      tipo: 'danger',
-      icon: 'lucide-wrench',
-    },
-    // {
-    //   titulo: 'Rodízio de pneus recomendado',
-    //   detalhe: 'em 1.200 km',
-    //   tipo: 'warning',
-    //   icon: 'lucide-circle-dot',
-    // },
-    {
-      titulo: 'Revisão geral prevista',
-      detalhe: 'para Março 2025',
-      tipo: 'good',
-      icon: 'lucide-settings',
-    },
-    // {
-    //   titulo: 'Verificar bateria',
-    //   detalhe: 'última troca há 2 anos',
-    //   tipo: 'warning',
-    //   icon: 'lucide-battery',
-    // },
-    {
-      titulo: 'Luz de injeção registrada',
-      detalhe: 'veja possíveis causas',
-      tipo: 'danger',
-      icon: 'lucide-triangle-alert',
-    },
-  ];
-
-
+  // recomendacoes = [
+  // {
+  //   titulo: 'Troca de óleo',
+  //   detalhe: 'em 350 km',
+  //   tipo: 'danger',
+  // },
+  // {
+  //   titulo: 'Rodízio de pneus recomendado',
+  //   detalhe: 'em 1.200 km',
+  //   tipo: 'warning',
+  // },
+  // {
+  //   titulo: 'Revisão geral prevista',
+  //   detalhe: 'para Março 2025',
+  //   tipo: 'good',
+  // },
+  // {
+  //   titulo: 'Verificar bateria',
+  //   detalhe: 'última troca há 2 anos',
+  //   tipo: 'warning',
+  // },
+  // {
+  //   titulo: 'Luz de injeção registrada',
+  //   detalhe: 'veja possíveis causas',
+  //   tipo: 'danger',
+  // },
+  // ];
 }
