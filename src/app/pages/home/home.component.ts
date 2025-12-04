@@ -9,4 +9,11 @@ import { Router } from '@angular/router';
   templateUrl: './home.component.html',
   styleUrl: './home.component.css',
 })
-export class HomeComponent {}
+export class HomeComponent {
+
+  constructor(private router: Router){}
+
+  telaLogin(): void{
+    this.router.navigate(['/login']);
+  }
+}
