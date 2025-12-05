@@ -1,9 +1,5 @@
 import { Component } from '@angular/core';
-import {
-  FormBuilder,
-  FormGroup,
-  ReactiveFormsModule,
-} from '@angular/forms';
+import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { LocalStorageService } from '../../services/local-storage.service';
 import { Router } from '@angular/router';
 
@@ -35,11 +31,12 @@ export class LoginComponent {
         this.storageUsuario.senha === this.loginForm.value.senha
       ) {
         alert('Login bem-sucedido!');
-        console.log('Usuário logado:', this.storageUsuario,
-          this.storage.get('usuario'));
+        console.log('Usuário logado:', this.storageUsuario, ' - ', this.storage.get('usuario'));
         this.router.navigate(['/dashboard']);
+        this.storage.set('logado', true);
       } else {
         alert('Email ou senha incorretos.');
+        this.storage.set('logado', false);
       }
     }
     console.log(this.loginForm.value);

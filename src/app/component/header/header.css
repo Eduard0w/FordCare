@@ -13,20 +13,34 @@ header nav {
 }
 a:hover {
   color: white;
-  background-color: #234BFF;
+  background-color: #234bff;
   padding: 5px 20px;
   border-radius: 5px;
 }
-a{
+a {
   padding: 5px 20px;
   border: none;
   border-radius: 5px;
 }
-header button {
+header .loginButton {
   padding: 5px 20px;
   border: none;
   background-color: rgb(35, 75, 255);
   border-radius: 5px;
+  color: white;
+}
+header .loginButton:hover {
+  background-color: rgb(23, 49, 178);
+}
+header .sairButton {
+  padding: 5px 20px;
+  border: 1px solid rgb(255, 58, 52);
+  /* background-color: rgb(235, 151, 148); */
+  border-radius: 5px;
+  color: black;
+}
+header .sairButton:hover {
+  background-color: rgb(255, 58, 52);
   color: white;
 }
 header .logo {

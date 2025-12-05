@@ -1,13 +1,18 @@
 <header>
   <div class="logo cursor-pointer" (click)="irParaHome()">FordCare+</div>
   <nav>
-    <a href="">
+    <a href="/dashboard">
       Dashboard
     </a>
-    <a href="">
+    <a href="/vehicle">
       Meus veiculos
     </a>
     <!-- TODO: Botão de login deve mudar para um botão de sair da conta quando o usuario estiver logado -->
-    <button (click)="irParaLogin()">Login</button>
+    <button *ngIf="!storage.get('logado')" (click)="irParaLogin()" class="loginButton">Login</button>
+
+    <div *ngIf="storage.get('logado')" class="flex items-center gap-2">
+      <p>Olá, <span class="text-azul-texto">{{ usuario?.nome || 'usuário' }}</span>!</p>
+      <button (click)="sair()" class="sairButton">Sair</button>
+    </div>
   </nav>
 </header>

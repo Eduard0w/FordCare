@@ -6,6 +6,7 @@ import { CarService } from '../../services/car.service';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { Footer } from '../../component/footer/footer';
+import { LocalStorageService } from '../../services/local-storage.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -20,8 +21,11 @@ export class DashboardComponent implements OnInit {
   textoSaude = '';
   kmInput: number | null = null;
   recomendacoes: { tipo: string; titulo: string; detalhe?: string }[] = [];
+  usuario: any;
 
-  constructor(private carService: CarService) {}
+  constructor(private carService: CarService, private storage: LocalStorageService) {
+    this.usuario = this.storage.get('usuario');
+  }
 
   ngOnInit(): void {
     this.veiculo = this.carService.getVeiculo();

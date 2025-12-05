@@ -4,11 +4,11 @@
   <section class="max-w-[1100px] m-auto">
     <div>
       <h1 class="text-4xl font-semibold">
-        Bem-vindo, {{ veiculo?.modelo || 'usuário' }} !
+        Bem-vindo, {{ usuario?.nome || 'usuário' }} !
       </h1>
 
       <div class="mt-3 p-4 border rounded-md w-full">
-        <p class="text-xl font-semibold">Confira como está a saúde de seu veículo</p>
+        <p class="text-xl font-semibold">Confira como está a saúde de seu {{ veiculo?.modelo || 'veículo' }}</p>
         <div class="flex justify-center">
           <h1 class="text-6xl text-gray-600 my-3" [ngClass]="{
                 'text-red-500': saude <= 40,
