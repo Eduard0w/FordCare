@@ -1,4 +1,5 @@
 export interface VeiculoCadastrado {
+  id: string;
   marca: string;
   modelo: string;
   ano: number;

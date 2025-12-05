@@ -13,7 +13,7 @@ export const routes: Routes = [
   { path: 'creatAcount', component: CreatAcountComponent },
   { path: 'dashboard', component: DashboardComponent },
   { path: 'vehicle', component: VeiculosComponent },
-  { path: 'creatVehicle', component: CreatVehicleComponent },
+  { path: 'vehicle/create', component: CreatVehicleComponent },
   { path: '**', component: HomeComponent },
 ];
 
