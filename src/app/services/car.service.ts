@@ -5,7 +5,6 @@ const STORAGE_KEY = 'veiculo_cadastrado_v1';
 
 @Injectable({ providedIn: 'root' })
 export class CarService {
-  
   saveVeiculo(v: VeiculoCadastrado) {
     // serializa Date para ISO para persistir
     const serial = {
@@ -105,5 +104,17 @@ export class CarService {
     });
 
     return recs;
+  }
+
+  getDiasDesde(data: Date | undefined): number {
+    if (!data) return 0;
+
+    const dataTroca = new Date(data);
+    const hoje = new Date();
+
+    const diffMs = hoje.getTime() - dataTroca.getTime();
+    const diffDias = diffMs / (1000 * 60 * 60 * 24);
+
+    return Math.floor(diffDias);
   }
 }

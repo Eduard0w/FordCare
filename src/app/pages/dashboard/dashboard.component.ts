@@ -15,53 +15,83 @@ import { LocalStorageService } from '../../services/local-storage.service';
   styleUrl: './dashboard.component.css',
 })
 export class DashboardComponent implements OnInit {
-  acoes: proximasAcoes = new proximasAcoes();
-  veiculo: VeiculoCadastrado | null = null;
-  saude = 0;
-  textoSaude = '';
+  // acoes: proximasAcoes = new proximasAcoes();
+  // veiculo: VeiculoCadastrado | null = null;
+  // saude = 0;
+  // textoSaude = '';
   kmInput: number | null = null;
-  recomendacoes: { tipo: string; titulo: string; detalhe?: string }[] = [];
+  // recomendacoes: { tipo: string; titulo: string; detalhe?: string }[] = [];
   usuario: any;
 
   constructor(private carService: CarService, private storage: LocalStorageService) {
     this.usuario = this.storage.get('usuario');
   }
 
-  ngOnInit(): void {
+  // ngOnInit(): void {
+  //   this.veiculo = this.carService.getVeiculo();
+  //   if (this.veiculo) {
+  //     this.atualizaTodos();
+  //   }
+  // }
+
+  // private atualizaTodos() {
+  //   if (!this.veiculo) return;
+  //   this.saude = this.carService.calculaSaude(this.veiculo);
+  //   this.textoSaude = this.getTextoSaude(this.saude);
+  //   this.recomendacoes = this.carService.geraRecomendacoes(this.veiculo);
+  // }
+
+  // private getTextoSaude(valor: number) {
+  //   if (valor > 80) return 'Seu veículo está saudável';
+  //   if (valor > 50) return 'Atenção, revisão se aproxima';
+  //   return 'Seu veículo precisa de atenção!';
+  // }
+
+  // atualizarKm() {
+  //   if (this.kmInput == null || !this.veiculo) return;
+  //   if (this.kmInput < this.veiculo.quilometragem) {
+  //     // evitamos regressão de km
+  //     alert('A quilometragem informada é menor que a atual. Verifique.');
+  //     return;
+  //   }
+  //   this.veiculo = this.carService.updateQuilometragem(this.kmInput);
+  //   this.kmInput = null;
+  //   this.atualizaTodos();
+  // }
+
+  // formatDate(d?: Date) {
+  //   if (!d) return '-';
+  //   return new Date(d).toLocaleDateString();
+  // }
+
+  veiculo: any;
+  saude = 0;
+  recomendacoes: any[] = [];
+
+  ngOnInit() {
     this.veiculo = this.carService.getVeiculo();
+
     if (this.veiculo) {
-      this.atualizaTodos();
+      this.saude = this.carService.calculaSaude(this.veiculo);
+      this.recomendacoes = this.carService.geraRecomendacoes(this.veiculo);
     }
-  }
-
-  private atualizaTodos() {
-    if (!this.veiculo) return;
-    this.saude = this.carService.calculaSaude(this.veiculo);
-    this.textoSaude = this.getTextoSaude(this.saude);
-    this.recomendacoes = this.carService.geraRecomendacoes(this.veiculo);
-  }
-
-  private getTextoSaude(valor: number) {
-    if (valor > 80) return 'Seu veículo está saudável';
-    if (valor > 50) return 'Atenção, revisão se aproxima';
-    return 'Seu veículo precisa de atenção!';
   }
 
   atualizarKm() {
     if (this.kmInput == null || !this.veiculo) return;
-    if (this.kmInput < this.veiculo.quilometragem) {
-      // evitamos regressão de km
-      alert('A quilometragem informada é menor que a atual. Verifique.');
-      return;
-    }
+
     this.veiculo = this.carService.updateQuilometragem(this.kmInput);
     this.kmInput = null;
     this.atualizaTodos();
   }
+  private atualizaTodos() {
+    if (!this.veiculo) return;
+    this.saude = this.carService.calculaSaude(this.veiculo);
+    this.recomendacoes = this.carService.geraRecomendacoes(this.veiculo);
+  }
 
-  formatDate(d?: Date) {
-    if (!d) return '-';
-    return new Date(d).toLocaleDateString();
+  getDias(data: Date | undefined): number {
+    return this.carService.getDiasDesde(data);
   }
 
   getDelay(i: number) {
