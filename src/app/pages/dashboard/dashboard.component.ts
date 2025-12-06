@@ -7,6 +7,7 @@ import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { Footer } from '../../component/footer/footer';
 import { LocalStorageService } from '../../services/local-storage.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard',
@@ -23,7 +24,11 @@ export class DashboardComponent implements OnInit {
   // recomendacoes: { tipo: string; titulo: string; detalhe?: string }[] = [];
   usuario: any;
 
-  constructor(private carService: CarService, private storage: LocalStorageService) {
+  constructor(
+    private carService: CarService,
+    private storage: LocalStorageService,
+    private router: Router
+  ) {
     this.usuario = this.storage.get('usuario');
   }
 
@@ -72,7 +77,10 @@ export class DashboardComponent implements OnInit {
     this.veiculo = this.carService.getVeiculo();
 
     if (this.veiculo) {
-      this.saude = this.carService.calculaSaude(this.veiculo);
+      this.saude =
+        this.carService.calculaSaude(this.veiculo) > 100
+          ? 100
+          : this.carService.calculaSaude(this.veiculo);
       this.recomendacoes = this.carService.geraRecomendacoes(this.veiculo);
     }
   }
@@ -96,6 +104,10 @@ export class DashboardComponent implements OnInit {
 
   getDelay(i: number) {
     return `${i * 50}ms`;
+  }
+
+  irParaForm() {
+    this.router.navigate(['/vehicle/create']);
   }
 }
 

@@ -34,6 +34,11 @@ export class CarService {
     }
   }
 
+  // setVeiculo(v: VeiculoCadastrado) {
+  //   localStorage.setItem(STORAGE_KEY, JSON.stringify(v));
+  //   this.saveVeiculo(v);
+  // }
+
   updateQuilometragem(novaKm: number) {
     const v = this.getVeiculo();
     if (!v) return null;
@@ -47,15 +52,51 @@ export class CarService {
   // - com base em ultima troca de óleo: quanto km rodados desde a última troca
   // - junta com média diaria para estimar se está próximo do limite
   calculaSaude(v: VeiculoCadastrado): number {
+    let proporcaoKm: number;
     if (!v) return 0;
+
+    // 1️⃣ KM desde a última troca
     const kmDesdeUltTroca = v.quilometragem - v.ult_troca_oleo[1];
-    // exemplo de limite: trocar óleo a cada 10.000 km (padrão simplificado)
-    const limite = 10000;
-    const proporcao = Math.max(0, Math.min(1, 1 - kmDesdeUltTroca / limite)); // 1 -> saudável
-    // impacto de tempo: se média diária alta, reduzir saúde um pouco
-    const usoFactor = Math.max(0.8, Math.min(1.0, 1 - v.KM_medio_p_dia / 200)); // se usa >200km/dia reduz
-    const saude = Math.round(proporcao * 100 * usoFactor);
-    return saude;
+    const limiteKm = 10000;
+    if (kmDesdeUltTroca === v.quilometragem) {
+      // Quero calcular com base na data apenas, se a data for muito antiga ele calcula sem precisar da km
+      const ultimaTrocaOleo: Date = v.ult_troca_oleo[0];
+      const ultimaTrocaFiltro: Date = v.ult_troca_filtro[0];
+      const ultimaTrocaPastilhas: Date = v.ult_troca_pastilhas[0];
+      const maisRecente = new Date(
+        Math.max(
+          ultimaTrocaOleo.getTime(),
+          ultimaTrocaFiltro.getTime(),
+          ultimaTrocaPastilhas.getTime()
+        )
+      );
+      const hoje = new Date();
+      const diffMs = hoje.getTime() - maisRecente.getTime(); // ms desde a última troca
+      const diffDias = diffMs / (1000 * 60 * 60 * 24); // dias desde a última troca
+      const kmEstimadoDesdeUltTroca = diffDias * v.KM_medio_p_dia;
+      proporcaoKm = Math.max(0, Math.min(1, 1 - kmEstimadoDesdeUltTroca / limiteKm)); // 0..1
+    } else {
+      proporcaoKm = Math.max(0, Math.min(1, 1 - kmDesdeUltTroca / limiteKm)); // 0..1
+    }
+    // 2️⃣ Dias desde a última troca
+    const dias = this.getDiasDesde(v.ult_troca_oleo[0]);
+    const limiteDias = 180; // 6 meses
+    const proporcaoDias = Math.max(0, Math.min(1, 1 - dias / limiteDias));
+
+    // 3️⃣ Alertas no painel
+    const qtdAlertas = v.alerta_painel?.length ?? 0;
+    const maxAlertasImpacto = 5; // depois disso o impacto estabiliza
+    const proporcaoAlertas = Math.max(0, Math.min(1, 1 - qtdAlertas / maxAlertasImpacto));
+
+    // 4️⃣ Combinação ponderada
+    const pesoKm = 0.3;
+    const pesoDias = 0.45;
+    const pesoAlertas = 0.25;
+
+    const resultado =
+      proporcaoKm * pesoKm + proporcaoDias * pesoDias + proporcaoAlertas * pesoAlertas;
+
+    return Math.round(resultado * 100);
   }
 
   // sugestões básicas a partir da saúde e alertas

@@ -53,46 +53,46 @@ export class CreatVehicleComponent {
       tipo_uso: [''],
       KM_medio_p_dia: [''],
     });
+
+    // Se já existe carro no storage → preencher o form
+    const saved = this.carService.getVeiculo();
+    if (saved) {
+      this.populateForm(saved);
+    }
   }
-  // Se já existe carro no storage → preencher o form
-  //   const saved = this.carService.getVeiculo();
-  //   if (saved) {
-  //     this.populateForm(saved);
-  //   }
-  // }
 
   setTab(i: number) {
     this.activeTab = i;
   }
 
-//   populateForm(v: VeiculoCadastrado) {
-//   this.vehicleForm.patchValue({
-//     marca: v.marca,
-//     modelo: v.modelo,
-//     ano: v.ano,
-//     placa: v.placa,
-//     combustivel: v.combustivel,
-//     quilometragem: v.quilometragem,
+  populateForm(v: VeiculoCadastrado) {
+    this.vehicleForm.patchValue({
+      marca: v.marca,
+      modelo: v.modelo,
+      ano: v.ano,
+      placa: v.placa,
+      combustivel: v.combustivel,
+      quilometragem: v.quilometragem,
 
-//     ult_troca_oleo_data: v.ult_troca_oleo[0]?.toISOString().substring(0, 10),
-//     ult_troca_oleo_km: v.ult_troca_oleo[1],
+      ult_troca_oleo_data: v.ult_troca_oleo[0]?.toISOString().substring(0, 10),
+      ult_troca_oleo_km: v.ult_troca_oleo[1],
 
-//     ult_troca_filtro_data: v.ult_troca_filtro[0]?.toISOString().substring(0, 10),
-//     ult_troca_filtro_km: v.ult_troca_filtro[1],
+      ult_troca_filtro_data: v.ult_troca_filtro[0]?.toISOString().substring(0, 10),
+      ult_troca_filtro_km: v.ult_troca_filtro[1],
 
-//     ult_troca_pastilhas_data: v.ult_troca_pastilhas[0]?.toISOString().substring(0, 10),
-//     ult_troca_pastilhas_km: v.ult_troca_pastilhas[1],
+      ult_troca_pastilhas_data: v.ult_troca_pastilhas[0]?.toISOString().substring(0, 10),
+      ult_troca_pastilhas_km: v.ult_troca_pastilhas[1],
 
-//     engineLight: v.alerta_painel.includes('motor'),
-//     absLight: v.alerta_painel.includes('abs'),
-//     batteryLight: v.alerta_painel.includes('bateria'),
-//     airbagLight: v.alerta_painel.includes('airbag'),
-//     oilLight: v.alerta_painel.includes('oleo'),
+      engineLight: v.alerta_painel.includes('motor'),
+      absLight: v.alerta_painel.includes('abs'),
+      batteryLight: v.alerta_painel.includes('bateria'),
+      airbagLight: v.alerta_painel.includes('airbag'),
+      oilLight: v.alerta_painel.includes('oleo'),
 
-//     tipo_uso: v.tipo_uso,
-//     KM_medio_p_dia: v.KM_medio_p_dia,
-//   });
-// }
+      tipo_uso: v.tipo_uso,
+      KM_medio_p_dia: v.KM_medio_p_dia,
+    });
+  }
 
   salvar() {
     const f = this.vehicleForm.value;

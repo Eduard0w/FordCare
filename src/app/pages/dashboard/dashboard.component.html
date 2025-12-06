@@ -8,7 +8,15 @@
       </h1>
 
       <div class="mt-3 p-4 border rounded-md w-full">
-        <p class="text-xl font-semibold">Confira como está a saúde de seu {{ veiculo?.modelo || 'veículo' }}</p>
+        <div class="flex justify-between items-center mb-2">
+          <p class="text-xl font-semibold">
+            Confira como está a saúde de seu {{ veiculo?.modelo || 'veículo' }}
+          </p>
+
+          <button (click)="irParaForm()" class="bg-azul-texto text-white px-2 py-1 rounded">
+            Editar
+          </button>
+        </div>
         <div class="flex justify-center">
           <h1 class="text-6xl text-gray-600 my-3" [ngClass]="{
                 'text-red-500': saude <= 40,
@@ -78,37 +86,6 @@
     </div>
   </section>
 
-  <!-- <section class="max-w-[1100px] m-auto mt-5">
-    <div class="rounded-xl border bg-card text-card-foreground p-6 shadow-card">
-      <h3 class="text-xl font-semibold flex items-center gap-2"> -->
-  <!-- ícone omitido por simplicidade -->
-  <!-- Próximas Ações
-      </h3> -->
-
-  <!-- <div class="p-6 pt-0 space-y-3">
-        <ng-container *ngFor="let r of recomendacoes">
-          <div class="flex items-center gap-3 p-3 rounded-lg border-l-4 cursor-pointer" [ngClass]="{
-                 'border-l-destructive bg-destructive/5': r.tipo === 'danger',
-                 'border-l-health-warning bg-health-warning/5': r.tipo === 'warning',
-                 'border-l-health-good bg-health-good/5': r.tipo === 'good'
-               }">
-            <div class="flex-1 min-w-0">
-              <p class="font-medium text-foreground truncate">{{ r.titulo }}</p>
-              <p class="text-sm text-muted-foreground">{{ r.detalhe }}</p>
-            </div>
-            <svg class="h-4 w-4 text-muted-foreground" viewBox="0 0 24 24">
-              <path d="m9 18 6-6-6-6" />
-            </svg>
-          </div>
-        </ng-container> -->
-
-  <!-- <button class="w-full mt-4 py-2 rounded bg-azul-icon text-white">
-          Ver recomendações completas
-        </button>
-      </div>
-    </div>
-  </section> -->
-
   <section class="max-w-[1100px] m-auto mt-5">
 
     <div class="animate-slide-up" style="animation-delay: 100ms;">
@@ -126,38 +103,60 @@
 
         <div class="p-6 pt-0 space-y-3">
 
-          <!-- <ng-container *ngFor="let r of acoes.recomendacoes; let i = index">
+          <ng-container *ngFor="let r of recomendacoes; let i = index">
 
             <div *ngIf="r.tipo == r.tipo" class="flex items-center gap-3 p-3 rounded-lg border-l-4 cursor-pointer transition-all duration-200 animate-slide-up" [ngClass]="{
                 'bg-red-100 border-l-red-600': r.tipo === 'danger',
                 'bg-yellow-100 border-l-yellow-600': r.tipo === 'warning',
                 'bg-green-100 border-l-green-600': r.tipo === 'good'
-               }" [style.animation-delay]="getDelay(i)"> -->
+               }" [style.animation-delay]="getDelay(i)">
 
 
-          <!-- <div class="flex-1 min-w-0">
+              <div class="flex-1 min-w-0">
                 <p class="font-medium text-foreground truncate">{{ r.titulo }}</p>
                 <p class="text-sm text-muted-foreground">{{ r.detalhe }}</p>
               </div>
 
-              <input type="checkbox" name="" id="">
+              <!-- <input type="checkbox" name="" id=""> -->
 
             </div>
 
-          </ng-container> -->
+          </ng-container>
 
-          <button class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-lg text-sm font-medium
+          <!-- <button class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-lg text-sm font-medium
                  ring-offset-background transition-all duration-200 w-full h-10 px-4 py-2 border border-input
                  bg-background hover:bg-accent hover:text-accent-foreground mt-4">
             Ver recomendações completas
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-right h-4 w-4">
               <path d="m9 18 6-6-6-6"></path>
             </svg>
-          </button>
+          </button> -->
 
         </div>
       </div>
     </div>
+
+    <!-- Quando apertar no botão "Ver recomendações completas"  -->
+    <!-- <div class="rounded-xl border bg-card p-6 shadow-card">
+      <h3 class="text-xl font-semibold flex items-center gap-2">Recomendações Completas</h3>
+      <div class="pt-0 space-y-4">
+        <ng-container *ngFor="let r of recomendacoes">
+          <div class="flex items-center gap-3 p-3 rounded-lg border-l-4 cursor-pointer" [ngClass]="{
+               'border-l-destructive bg-destructive/5 bg-red-200 border-l-red-500': r.tipo === 'danger',
+               'border-l-health-warning bg-health-warning/5 bg-yellow-200 border-l-yellow-500': r.tipo === 'warning',
+               'border-l-health-good bg-health-good/5 bg-green-200 border-l-green-500': r.tipo === 'good'
+             }">
+            <div class="flex-1 min-w-0">
+              <p class="font-medium text-foreground truncate">{{ r.titulo }}</p>
+              <p class="text-sm text-muted-foreground">{{ r.detalhe }}</p>
+            </div>
+            <svg class="h-4 w-4 text-muted-foreground" viewBox="0 0 24 24">
+              <path d="m9 18 6-6-6-6" />
+            </svg>
+          </div>
+        </ng-container>
+      </div>
+    </div> -->
 
   </section>
 
@@ -169,7 +168,7 @@
       <h3 class="text-xl font-semibold flex items-center gap-2">Atualizar Quilometragem</h3>
       <div class=" pt-0 space-y-4">
         <div class="flex gap-3">
-          <input type="number" placeholder="Digite a quilometragem atual" [(ngModel)]="kmInput" class="flex w-full rounded-md border px-3 py-2 h-12 text-lg" />
+          <input type="number" placeholder="Digite a quilometragem atual do seu veículo" [(ngModel)]="kmInput" class="flex w-full rounded-md border px-3 py-2 h-12 text-lg" />
           <button class="h-11 rounded-lg px-6 bg-azul-icon text-white" (click)="atualizarKm()">Atualizar</button>
         </div>
         <p class="text-sm text-muted-foreground">Isso recalibra sua barra de saúde e todos os alertas.</p>
