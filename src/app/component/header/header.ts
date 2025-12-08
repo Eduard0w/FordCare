@@ -11,6 +11,8 @@ import { NgIf } from '@angular/common';
 })
 export class Header {
   usuario: any;
+  menuAberto = false;
+  // innerWidth: number = window.innerWidth;
   constructor(private router: Router, public storage: LocalStorageService) {
     this.usuario = this.storage.get('usuario');
   }
@@ -26,5 +28,13 @@ export class Header {
       this.storage.remove('logado');
       this.router.navigate(['/login']);
     }
+  }
+
+  toggleMenu(): void {
+    if (this.menuAberto) {
+      this.menuAberto = false;
+      return;
+    }
+    this.menuAberto = true;
   }
 }
