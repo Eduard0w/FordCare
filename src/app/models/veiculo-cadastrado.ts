@@ -13,4 +13,5 @@ export interface VeiculoCadastrado {
   alerta_painel: string[];
   tipo_uso: string;
   KM_medio_p_dia: number;
+  imagem?: string;
 }

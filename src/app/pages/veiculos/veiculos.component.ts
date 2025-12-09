@@ -21,16 +21,12 @@ export class VeiculosComponent {
     const veiculo = this.car.getVeiculo();
     if (veiculo) {
       this.VeiculoCadastrados.push(veiculo);
+      this.existemVeiculos = true;
     }
   }
 
   telaCriar() {
     this.router.navigate(['/vehicle/create']);
-    if (this.VeiculoCadastrados.length > 0) {
-      this.existemVeiculos = true;
-    } else {
-      this.existemVeiculos = false;
-    }
   }
 
   aparecerTelaRemover() {

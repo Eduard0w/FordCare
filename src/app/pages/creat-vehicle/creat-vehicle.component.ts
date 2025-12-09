@@ -51,6 +51,7 @@ export class CreatVehicleComponent {
 
       tipo_uso: [''],
       KM_medio_p_dia: [''],
+      imagem: [''],
     });
 
     // Se já existe carro no storage → preencher o form
@@ -123,6 +124,7 @@ export class CreatVehicleComponent {
 
       tipo_uso: f.tipo_uso,
       KM_medio_p_dia: +f.KM_medio_p_dia || 0,
+      imagem: f.imagem || null,
     };
 
     this.carService.saveVeiculo(veiculo);
@@ -158,6 +160,20 @@ export class CreatVehicleComponent {
 
       tipo_uso: '',
       KM_medio_p_dia: '',
+      imagem: '',
     });
+  }
+
+  onFileSelected(event: any) {
+    const file: File = event.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = () => {
+        this.vehicleForm.patchValue({
+          imagem: reader.result as string,
+        });
+      };
+      reader.readAsDataURL(file);
+    }
   }
 }
