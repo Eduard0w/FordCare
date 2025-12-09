@@ -13,3 +13,8 @@ html {
   box-sizing: border-box;
   font-family: 'Momo Trust Sans', sans-serif;
 }
+
+input[type="checkbox"] {
+  appearance: auto !important;
+  -webkit-appearance: auto !important;
+}
