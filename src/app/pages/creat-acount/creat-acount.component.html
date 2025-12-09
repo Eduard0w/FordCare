@@ -20,7 +20,7 @@
           <p class="text-[14px]">
             Você aceita os <a href="https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/lei/l13709.htm" class="text-azul-texto">termos e condições conforme a norma LGPD</a>?
           </p>
-          <input type="checkbox" name="" id="LGPD" required formControlName="LGPD" required>
+          <input type="checkbox" id="LGPD" formControlName="LGPD" required>
         </div>
         <div *ngIf="creatAcountForm.get('LGPD')?.touched && creatAcountForm.get('LGPD')?.invalid" class="text-red-500 text-sm">
           Você deve aceitar os termos para continuar.
