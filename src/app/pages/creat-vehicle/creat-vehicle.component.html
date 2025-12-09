@@ -1,236 +1,21 @@
-<!-- <div class="max-w-3xl mx-auto p-6">
-  <h1 class="text-3xl font-bold mb-6 text-blue-700">
-    Cadastro do Veículo
-  </h1> -->
-
-<!-- <form class="bg-white shadow-lg rounded-xl p-6 space-y-6"> -->
-<!-- Dados básicos -->
 <!-- <div>
-      <h2 class="text-xl font-semibold mb-3">Informações Básicas</h2>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <div>
-          <label class="block font-medium mb-1">Marca</label>
-          <input formControlName="brand" type="text" class="w-full p-2 border rounded" placeholder="Ex: Ford" />
-        </div>
-
-        <div>
-          <label class="block font-medium mb-1">Modelo</label>
-          <input formControlName="model" type="text" class="w-full p-2 border rounded" placeholder="Ex: Fiesta" />
-        </div>
-
-        <div>
-          <label class="block font-medium mb-1">Ano</label>
-          <input formControlName="year" type="number" class="w-full p-2 border rounded" placeholder="Ex: 2014" />
-        </div>
-
-        <div>
-          <label class="block font-medium mb-1">Combustível</label>
-          <select formControlName="fuel" class="w-full p-2 border rounded">
-            <option value="">Selecione</option>
-            <option value="gasolina">Gasolina</option>
-            <option value="alcool">Álcool</option>
-            <option value="flex">Flex</option>
-            <option value="diesel">Diesel</option>
-          </select>
-        </div>
-      </div>
-    </div> -->
-
-<!-- Quilometragem -->
-<!-- <div>
-      <h2 class="text-xl font-semibold mb-3">Quilometragem</h2>
-
-      <div>
-        <label class="block font-medium mb-1">Kilometragem Atual</label>
-        <input formControlName="mileage" type="number" class="w-full p-2 border rounded" placeholder="Ex: 72300" />
-      </div>
-    </div> -->
-
-<!-- Manutenções -->
-<!-- <div>
-      <h2 class="text-xl font-semibold mb-3">Últimas Manutenções</h2>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <div>
-          <label class="block font-medium mb-1">Última troca de óleo</label>
-          <input formControlName="lastOilChange" type="date" class="w-full p-2 border rounded" />
-        </div>
-
-        <div>
-          <label class="block font-medium mb-1">Última troca de filtro de ar</label>
-          <input formControlName="lastAirFilterChange" type="date" class="w-full p-2 border rounded" />
-        </div>
-      </div>
-    </div> -->
-
-<!-- Avisos do painel -->
-<!-- <div>
-      <h2 class="text-xl font-semibold mb-3">Alertas do Painel</h2>
-
-      <label class="block font-medium mb-2">Selecione os avisos exibidos:</label>
-
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
-        <label class="flex items-center gap-2">
-          <input type="checkbox" formControlName="engineLight" />
-          Luz do motor
-        </label>
-
-        <label class="flex items-center gap-2">
-          <input type="checkbox" formControlName="absLight" />
-          ABS
-        </label>
-
-        <label class="flex items-center gap-2">
-          <input type="checkbox" formControlName="airbagLight" />
-          Airbag
-        </label>
-      </div>
-    </div> -->
-
-<!-- Submit -->
-<!-- <button type="submit" class="w-full bg-blue-600 text-white py-3 rounded-lg text-lg font-semibold hover:bg-blue-700 transition">
-      Salvar Informações
-    </button>
-  </form>
-</div> -->
-
-
-<!-- <div class="max-w-4xl mx-auto p-6">
-  <div class="bg-white shadow-xl rounded-xl p-8">
-    <h2 class="text-2xl font-bold mb-6">Cadastro do Veículo</h2>
-
-    <form method="post" class="space-y-6"> -->
-
-<!-- Dados do veículo -->
-<!-- <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <div>
-          <label class="font-semibold">Marca</label>
-          <input type="text" formControlName="brand" class="input" />
-        </div>
-
-        <div>
-          <label class="font-semibold">Modelo</label>
-          <input type="text" formControlName="model" class="input" />
-        </div>
-
-        <div>
-          <label class="font-semibold">Ano</label>
-          <input type="number" formControlName="year" class="input" />
-        </div>
-
-        <div>
-          <label class="font-semibold">Combustível</label>
-          <select formControlName="fuelType" class="input">
-            <option value="">Selecione</option>
-            <option value="gasolina">Gasolina</option>
-            <option value="etanol">Etanol</option>
-            <option value="diesel">Diesel</option>
-            <option value="flex">Flex</option>
-          </select>
-        </div>
-
-        <div>
-          <label class="font-semibold">Placa (opcional)</label>
-          <input type="text" formControlName="plate" class="input" />
-        </div>
-      </div>
- -->
-<!-- Quilometragem -->
-<!-- <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <div>
-          <label class="font-semibold">Quilometragem atual</label>
-          <input type="number" formControlName="mileage" class="input" />
-        </div>
-
-        <div>
-          <label class="font-semibold">Média de km por dia</label>
-          <input type="number" formControlName="avgKmPerDay" class="input" />
-        </div>
-      </div> -->
-
-<!-- Manutenções -->
-<!-- <h3 class="text-xl font-semibold mt-6">Manutenções</h3>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <div>
-          <label class="font-semibold">Data da última troca de óleo</label>
-          <input type="date" formControlName="lastOilChangeDate" class="input" />
-        </div>
-
-        <div>
-          <label class="font-semibold">KM da última troca de óleo</label>
-          <input type="number" formControlName="lastOilChangeKm" class="input" />
-        </div>
-
-        <div>
-          <label class="font-semibold">Data da última revisão geral</label>
-          <input type="date" formControlName="lastGeneralRevision" class="input" />
-        </div>
-
-        <div>
-          <label class="font-semibold">Troca do filtro de ar</label>
-          <input type="date" formControlName="lastFilterAir" class="input" />
-        </div>
-
-        <div>
-          <label class="font-semibold">Troca do filtro de combustível</label>
-          <input type="date" formControlName="lastFilterFuel" class="input" />
-        </div>
-
-        <div>
-          <label class="font-semibold">Troca do filtro do ar-condicionado</label>
-          <input type="date" formControlName="lastFilterCabin" class="input" />
-        </div>
-
-        <div>
-          <label class="font-semibold">Troca da bateria</label>
-          <input type="date" formControlName="lastBatteryChange" class="input" />
-        </div>
-
-        <div>
-          <label class="font-semibold">Troca dos pneus</label>
-          <input type="date" formControlName="lastTireChange" class="input" />
-        </div>
-      </div> -->
-
-<!-- Alertas do painel -->
-<!-- <h3 class="text-xl font-semibold mt-6">Alertas do Painel</h3>
-      <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
-        <label><input type="checkbox" formControlName="alertEngine" /> Luz de injeção</label>
-        <label><input type="checkbox" formControlName="alertABS" /> Luz ABS</label>
-        <label><input type="checkbox" formControlName="alertAirbag" /> Luz Airbag</label>
-        <label><input type="checkbox" formControlName="alertBattery" /> Luz da bateria</label>
-        <label><input type="checkbox" formControlName="alertOil" /> Luz do óleo</label>
-      </div> -->
-
-<!-- Botão -->
-<!-- <button class="w-full bg-blue-600 text-white py-3 rounded-lg font-bold hover:bg-blue-700">
-        Salvar Informações
-      </button>
-
-    </form>
-  </div>
-</div> -->
-
-<div>
   <app-header></app-header>
 
   <div class="max-w-4xl mx-auto p-6">
-    <h1 class="text-2xl font-bold text-blue-700 mb-6">Cadastrar / Editar Veículo</h1>
+    <h1 class="text-2xl font-bold text-blue-700 mb-6">Cadastrar / Editar Veículo</h1> -->
 
     <!-- Tabs -->
-    <div class="mb-6 border-b">
+    <!-- <div class="mb-6 border-b">
       <nav class="flex gap-2" aria-label="Tabs">
         <button (click)="setTab(0)" [class]="activeTab === 0 ? activeTabClass : inactiveTabClass">Dados do Veículo</button>
         <button (click)="setTab(1)" [class]="activeTab === 1 ? activeTabClass : inactiveTabClass">Manutenções</button>
         <button (click)="setTab(2)" [class]="activeTab === 2 ? activeTabClass : inactiveTabClass">Alertas & Uso</button>
       </nav>
     </div>
-
-    <form [formGroup]="vehicleForm" (ngSubmit)="salvar()" class="bg-white shadow rounded p-6 space-y-6">
+ -->
+    <!-- <form [formGroup]="vehicleForm" (ngSubmit)="salvar()" class="bg-white shadow rounded p-6 space-y-6"> -->
       <!-- TAB 0: Dados do Veículo -->
-      <div *ngIf="activeTab === 0" class="space-y-4">
+      <!-- <div *ngIf="activeTab === 0" class="space-y-4">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div>
             <label class="block text-sm font-medium mb-1">Marca</label>
@@ -273,10 +58,10 @@
           <label>Coloque a imagem de seu veiculo (opcional)</label>
           <input type="file" (change)="onFileSelected($event)" class="w-full p-2 border rounded" formControlName="imagem" />
         </div>
-      </div>
+      </div> -->
 
       <!-- TAB 1: Manutenções -->
-      <div *ngIf="activeTab === 1" class="space-y-4">
+      <!-- <div *ngIf="activeTab === 1" class="space-y-4">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div>
             <label class="block text-sm font-medium mb-1">Última troca de óleo (data)</label>
@@ -308,10 +93,10 @@
             <input formControlName="ult_troca_pastilhas_km" type="number" class="w-full p-2 border rounded" />
           </div>
         </div>
-      </div>
+      </div> -->
 
       <!-- TAB 2: Alertas & Uso -->
-      <div *ngIf="activeTab === 2" class="space-y-4">
+      <!-- <div *ngIf="activeTab === 2" class="space-y-4">
         <div>
           <label class="block text-sm font-medium mb-2">Alertas do painel (marque se estiverem acesos)</label>
 
@@ -360,11 +145,191 @@
           </div>
         </div>
       </div>
-
+ -->
       <!-- Ações -->
-      <div class="flex gap-3 justify-end">
+      <!-- <div class="flex gap-3 justify-end">
         <button type="button" class="px-4 py-2 border rounded" (click)="limpar()">Limpar</button>
         <button type="submit" class="px-5 py-2 bg-blue-600 text-white rounded hover:bg-blue-700">Salvar Veículo</button>
+      </div>
+    </form>
+  </div>
+</div> -->
+
+
+
+<div>
+  <app-header></app-header>
+
+  <div class="max-w-4xl mx-auto p-4 md:p-6">
+    <h1 class="text-2xl font-bold text-blue-700 mb-6 text-center md:text-left">
+      Cadastrar / Editar Veículo
+    </h1>
+
+    <div class="mb-6 border-b overflow-x-auto hide-scrollbar">
+      <nav class="flex gap-2 min-w-max pb-2 md:pb-0" aria-label="Tabs">
+        <button (click)="setTab(0)"
+                class="whitespace-nowrap px-4 py-2 border-b-2 font-medium transition-colors duration-200"
+                [class]="activeTab === 0 ? 'border-blue-600 text-blue-600' : 'border-transparent text-gray-500 hover:text-gray-700'">
+          Dados do Veículo
+        </button>
+        <button (click)="setTab(1)"
+                class="whitespace-nowrap px-4 py-2 border-b-2 font-medium transition-colors duration-200"
+                [class]="activeTab === 1 ? 'border-blue-600 text-blue-600' : 'border-transparent text-gray-500 hover:text-gray-700'">
+          Manutenções
+        </button>
+        <button (click)="setTab(2)"
+                class="whitespace-nowrap px-4 py-2 border-b-2 font-medium transition-colors duration-200"
+                [class]="activeTab === 2 ? 'border-blue-600 text-blue-600' : 'border-transparent text-gray-500 hover:text-gray-700'">
+          Alertas & Uso
+        </button>
+      </nav>
+    </div>
+
+    <form [formGroup]="vehicleForm" (ngSubmit)="salvar()" class="bg-white shadow-lg rounded-xl p-4 md:p-8 space-y-6">
+
+      <div *ngIf="activeTab === 0" class="space-y-4 animate-fade-in">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6">
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1">Marca</label>
+            <input formControlName="marca" type="text" class="w-full p-2.5 bg-gray-50 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500" readonly />
+          </div>
+
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1">Modelo</label>
+            <input formControlName="modelo" type="text" class="w-full p-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500" placeholder="Ex: Ka" required />
+          </div>
+
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1">Ano</label>
+            <input formControlName="ano" type="number" class="w-full p-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500" placeholder="Ex: 2016" required />
+          </div>
+
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1">Placa (opcional)</label>
+            <input formControlName="placa" type="text" class="w-full p-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500" placeholder="ABC1D23" />
+          </div>
+
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1">Combustível</label>
+            <select formControlName="combustivel" class="w-full p-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-white">
+              <option value="">Selecione</option>
+              <option value="gasolina">Gasolina</option>
+              <option value="alcool">Álcool</option>
+              <option value="flex">Flex</option>
+              <option value="diesel">Diesel</option>
+            </select>
+          </div>
+
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1">Quilometragem atual</label>
+            <input formControlName="quilometragem" type="number" class="w-full p-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500" placeholder="Ex: 72300" required />
+          </div>
+        </div>
+
+        <div class="mt-4">
+          <label class="block text-sm font-medium text-gray-700 mb-1">Imagem do veículo (opcional)</label>
+          <input type="file" (change)="onFileSelected($event)" class="w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100" formControlName="imagem" />
+        </div>
+      </div>
+
+      <div *ngIf="activeTab === 1" class="space-y-4 animate-fade-in">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6">
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1">Última troca de óleo (data)</label>
+            <input formControlName="ult_troca_oleo_data" type="date" class="w-full p-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500" />
+          </div>
+
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1">Última troca de óleo (km)</label>
+            <input formControlName="ult_troca_oleo_km" type="number" class="w-full p-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500" />
+          </div>
+
+          <div class="border-t sm:col-span-2 my-2 hidden sm:block border-gray-100"></div>
+
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1">Última troca de filtro de ar (data)</label>
+            <input formControlName="ult_troca_filtro_data" type="date" class="w-full p-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500" />
+          </div>
+
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1">Última troca de filtro de ar (km)</label>
+            <input formControlName="ult_troca_filtro_km" type="number" class="w-full p-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500" />
+          </div>
+
+          <div class="border-t sm:col-span-2 my-2 hidden sm:block border-gray-100"></div>
+
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1">Última troca de pastilhas (data)</label>
+            <input formControlName="ult_troca_pastilhas_data" type="date" class="w-full p-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500" />
+          </div>
+
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1">Última troca de pastilhas (km)</label>
+            <input formControlName="ult_troca_pastilhas_km" type="number" class="w-full p-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500" />
+          </div>
+        </div>
+      </div>
+
+      <div *ngIf="activeTab === 2" class="space-y-6 animate-fade-in">
+        <div>
+          <label class="block text-sm font-bold text-gray-800 mb-3">Alertas do painel (marque se acesos)</label>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
+            <label class="flex items-center gap-3 p-3 border rounded-lg hover:bg-gray-50 cursor-pointer">
+              <input type="checkbox" formControlName="engineLight" class="w-5 h-5 text-blue-600 rounded focus:ring-blue-500" />
+              <span class="text-gray-700">Luz do motor</span>
+            </label>
+
+            <label class="flex items-center gap-3 p-3 border rounded-lg hover:bg-gray-50 cursor-pointer">
+              <input type="checkbox" formControlName="absLight" class="w-5 h-5 text-blue-600 rounded focus:ring-blue-500" />
+              <span class="text-gray-700">ABS</span>
+            </label>
+
+            <label class="flex items-center gap-3 p-3 border rounded-lg hover:bg-gray-50 cursor-pointer">
+              <input type="checkbox" formControlName="batteryLight" class="w-5 h-5 text-blue-600 rounded focus:ring-blue-500" />
+              <span class="text-gray-700">Bateria</span>
+            </label>
+
+            <label class="flex items-center gap-3 p-3 border rounded-lg hover:bg-gray-50 cursor-pointer">
+              <input type="checkbox" formControlName="oilLight" class="w-5 h-5 text-blue-600 rounded focus:ring-blue-500" />
+              <span class="text-gray-700">Pressão de óleo</span>
+            </label>
+
+            <label class="flex items-center gap-3 p-3 border rounded-lg hover:bg-gray-50 cursor-pointer">
+              <input type="checkbox" formControlName="tempLight" class="w-5 h-5 text-blue-600 rounded focus:ring-blue-500" />
+              <span class="text-gray-700">Temperatura</span>
+            </label>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6 border-t pt-4">
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1">Tipo de uso</label>
+            <select formControlName="tipo_uso" class="w-full p-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-white">
+              <option value="">Selecione</option>
+              <option value="urbano">Urbano</option>
+              <option value="estrada">Estrada</option>
+              <option value="misto">Misto</option>
+            </select>
+          </div>
+
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1">Km médio por dia (opcional)</label>
+            <input formControlName="KM_medio_p_dia" type="number" class="w-full p-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500" placeholder="Ex: 25" />
+          </div>
+        </div>
+      </div>
+
+      <div class="flex flex-col-reverse sm:flex-row gap-3 justify-end pt-4 border-t border-gray-100">
+        <button type="button"
+                class="w-full sm:w-auto px-6 py-2.5 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition"
+                (click)="limpar()">
+          Limpar
+        </button>
+        <button type="submit"
+                class="w-full sm:w-auto px-6 py-2.5 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 transition shadow-sm">
+          Salvar Veículo
+        </button>
       </div>
     </form>
   </div>
