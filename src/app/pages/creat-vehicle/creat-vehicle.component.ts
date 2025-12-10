@@ -127,9 +127,21 @@ export class CreatVehicleComponent {
       imagem: f.imagem || null,
     };
 
-    this.carService.saveVeiculo(veiculo);
-    console.log(veiculo);
-    this.router.navigate(['/dashboard']);
+    try {
+      this.carService.saveVeiculo(veiculo);
+      console.log(veiculo);
+      this.router.navigate(['/dashboard']);
+    } catch (error) {
+      console.error('Error saving vehicle:', error);
+      alert('Ocorreu um erro ao salvar o veículo. Por favor, tente novamente.');
+      if (
+        isNaN(veiculo.ult_troca_oleo[0].getDate()) ||
+        isNaN(veiculo.ult_troca_filtro[0].getDate()) ||
+        isNaN(veiculo.ult_troca_pastilhas[0].getDate())
+      ) {
+        alert('Verifique as datas inseridas. É necessario que sejam inseridas datas válidas.');
+      }
+    }
   }
 
   limpar() {
