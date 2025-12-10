@@ -8,7 +8,7 @@ O projeto foi construído utilizando o poderoso framework **Angular** e a biblio
 
 Embora o sistema se concentre na gestão automotiva, estas são algumas das funcionalidades esperadas e que podem ser detalhadas aqui:
 
-* **Monitoramento em Tempo Real:** Exibição do status atual de componentes críticos do veículo.
+* **Monitoramento do veículo:** Exibição do status atual de componentes críticos do veículo.
 * **Diagnóstico Inteligente:** Alertas e sugestões de manutenção baseadas em dados coletados.
 * **Histórico de Manutenção:** Registro completo de serviços realizados e peças trocadas.
 * **Gestão de Frota/Veículo Único:** Interface adaptável para diferentes necessidades de gestão.
