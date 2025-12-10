@@ -1,59 +1,37 @@
-# FordCare
+# 🚗 FordCare+
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.3.10.
+**FordCare+** é um Sistema Web Inteligente e Inovador, desenvolvido para a Gestão Eficiente da Saúde Automotiva. Nosso objetivo é fornecer uma plataforma intuitiva que monitore, diagnostique e ajude a gerenciar a manutenção de veículos de forma proativa.
 
-## Development server
+O projeto foi construído utilizando o poderoso framework **Angular** e a biblioteca de utilidades **Tailwind CSS** para um desenvolvimento ágil e responsivo.
 
-To start a local development server, run:
+## ✨ Recursos e Funcionalidades
 
-```bash
-ng serve
-```
+Embora o sistema se concentre na gestão automotiva, estas são algumas das funcionalidades esperadas e que podem ser detalhadas aqui:
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+* **Monitoramento em Tempo Real:** Exibição do status atual de componentes críticos do veículo.
+* **Diagnóstico Inteligente:** Alertas e sugestões de manutenção baseadas em dados coletados.
+* **Histórico de Manutenção:** Registro completo de serviços realizados e peças trocadas.
+* **Gestão de Frota/Veículo Único:** Interface adaptável para diferentes necessidades de gestão.
+* **Interface Responsiva:** Design otimizado para acesso via desktop, tablet e celular (graças ao Tailwind CSS).
 
-## Code scaffolding
+## 🛠️ Tecnologias Utilizadas
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+A aplicação FordCare+ é um projeto de frontend robusto construído com:
 
-```bash
-ng generate component component-name
-```
+* **Framework:** Angular (TypeScript)
+* **Linguagem:** TypeScript, HTML, CSS
+* **Estilização:** Tailwind CSS
+* **Gerenciamento de Pacotes:** npm
+* **Hospedagem (em produção):** Vercel (link: [ford-care.vercel.app](https://ford-care.vercel.app))
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+## ⚙️ Configuração e Instalação
 
-```bash
-ng generate --help
-```
+Para rodar este projeto localmente, siga os passos abaixo.
 
-## Building
+### Pré-requisitos
 
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+Certifique-se de ter o **Node.js** e o **Angular CLI** instalados em sua máquina.
 
 ```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+# Instalar o Angular CLI globalmente
+npm install -g @angular/cli
