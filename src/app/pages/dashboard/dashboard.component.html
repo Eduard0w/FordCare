@@ -1,151 +1,3 @@
-<!-- <div class="mb-5">
-  <app-header></app-header>
-
-  <section class="max-w-[1100px] m-auto">
-    <div>
-      <h1 class="text-4xl font-semibold">
-        Bem-vindo, {{ usuario?.nome || 'usuário' }} !
-      </h1>
-
-      <div class="mt-3 p-4 border rounded-md w-full">
-        <div class="flex justify-between items-center mb-2">
-          <p class="text-xl font-semibold">
-            Confira como está a saúde de seu {{ veiculo?.modelo || 'veículo' }}
-          </p>
-
-          <button (click)="irParaForm()" class="bg-azul-texto text-white px-2 py-1 rounded">
-            Editar
-          </button>
-        </div>
-        <div class="flex justify-center">
-          <h1 class="text-6xl text-gray-600 my-3" [ngClass]="{
-                'text-red-500': saude <= 40,
-                'text-yellow-500': saude > 40 && saude <= 70,
-                'text-green-600': saude > 70
-              }">
-            {{ saude }}
-          </h1>
-        </div>
-
-        <div>
-          <div class="w-full h-6 rounded-xl relative bg-gray-200">
-            <div class="h-full rounded-full absolute top-0 left-0 transition-all duration-500" [style.width.%]="saude" [ngClass]="{
-                   'bg-red-500': saude <= 40,
-                   'bg-yellow-500': saude > 40 && saude <= 70,
-                   'bg-green-600': saude > 70
-                 }">
-            </div>
-          </div>
-
-          <div class="grid grid-cols-3 text-center mt-1">
-            <p class="text-left">0</p>
-            <p>50</p>
-            <p class="text-right">100</p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="mt-2 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 w-full">
-      <div class="infosCar p-4 border rounded">
-        <div>
-          <h1 class="text-5xl font-bold text-azul-texto">
-            {{ veiculo?.quilometragem ?? '-' }}
-          </h1>
-        </div>
-        <div class="flex items-center gap-1 text-gray-500">
-          <h3 class="font-bold">Quilômetros</h3>
-          <p>Rodados</p>
-        </div>
-      </div>
-
-      <div class="infosCar p-4 border rounded">
-        <div class="text-5xl font-bold text-azul-texto">
-          {{ getDias(veiculo?.ult_troca_oleo?.[0]) }}
-        </div>
-        <p class="text-gray-500">Últ. troca óleo</p>
-      </div>
-
-      <div class="infosCar p-4 border rounded">
-        <div class="text-5xl font-bold text-gray-600">
-          {{ veiculo?.alerta_painel?.length ?? 0 }}
-        </div>
-        <p class="text-gray-500">Alertas</p>
-      </div>
-
-      <div class="infosCar p-4 border rounded">
-        <div class="text-5xl font-bold text-azul-texto">
-          {{ recomendacoes.length > 0 ? recomendacoes.length : '-' }}
-        </div>
-        <p class="text-gray-500">Recomendações</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="max-w-[1100px] m-auto mt-5">
-
-    <div class="animate-slide-up" style="animation-delay: 100ms;">
-      <div class="rounded-xl border bg-card text-card-foreground transition-all duration-200 shadow-card hover:shadow-card-hover hover:-translate-y-1">
-
-        <div class="flex flex-col space-y-1.5 p-6">
-          <h3 class="text-xl font-semibold leading-none tracking-tight flex items-center gap-2">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-check h-5 w-5 text-primary">
-              <circle cx="12" cy="12" r="10"></circle>
-              <path d="m9 12 2 2 4-4"></path>
-            </svg>
-            Próximas Ações
-          </h3>
-        </div>
-
-        <div class="p-6 pt-0 space-y-3">
-
-          <ng-container *ngFor="let r of recomendacoes; let i = index">
-
-            <div *ngIf="r.tipo == r.tipo" class="flex items-center gap-3 p-3 rounded-lg border-l-4 cursor-pointer transition-all duration-200 animate-slide-up" [ngClass]="{
-                'bg-red-100 border-l-red-600': r.tipo === 'danger',
-                'bg-yellow-100 border-l-yellow-600': r.tipo === 'warning',
-                'bg-green-100 border-l-green-600': r.tipo === 'good'
-               }" [style.animation-delay]="getDelay(i)">
-
-
-              <div class="flex-1 min-w-0">
-                <p class="font-medium text-foreground truncate">{{ r.titulo }}</p>
-                <p class="text-sm text-muted-foreground">{{ r.detalhe }}</p>
-              </div>
-
-            </div>
-
-          </ng-container>
-
-        </div>
-      </div>
-    </div>
-  </section>
-
-
-
-
-  <section class="max-w-[1100px] m-auto mt-5">
-    <div class="rounded-xl border bg-card p-6 shadow-card">
-      <h3 class="text-xl font-semibold flex items-center gap-2">Atualizar Quilometragem</h3>
-      <div class=" pt-0 space-y-4">
-        <div class="flex gap-3">
-          <input type="number" placeholder="Digite a quilometragem atual do seu veículo" [(ngModel)]="kmInput" class="flex w-full rounded-md border px-3 py-2 h-12 text-lg" />
-          <button class="h-11 rounded-lg px-6 bg-azul-icon text-white" (click)="atualizarKm()">Atualizar</button>
-        </div>
-        <p class="text-sm text-muted-foreground">Isso recalibra sua barra de saúde e todos os alertas.</p>
-      </div>
-    </div>
-  </section>
-
-  <app-card-diagnostico></app-card-diagnostico>
-</div>
-
-
-<app-footer></app-footer> -->
-
-
-
 <div class="mb-8 min-h-screen bg-gray-50 pb-8">
   <app-header></app-header>
 
@@ -156,48 +8,75 @@
       </h1>
 
       <div class="mt-4 p-4 md:p-6 bg-white border border-gray-200 rounded-xl shadow-sm w-full">
-        <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-4 gap-3">
+        <div *ngIf="!veiculo" class="flex flex-col items-center justify-center h-full">
           <p class="text-lg md:text-xl font-semibold text-gray-700">
-            Saúde do seu {{ veiculo?.modelo || 'veículo' }}
+            Você ainda não possui um veículo cadastrado.
           </p>
 
-          <button (click)="irParaForm()" class="w-full sm:w-auto bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition font-medium text-sm">
-            Editar Veículo
+          <button
+            (click)="irParaForm()"
+            class="w-full sm:w-auto bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition font-medium text-sm"
+          >
+            Cadastrar Veículo
           </button>
         </div>
 
-        <div class="flex justify-center">
-          <h1 class="text-5xl md:text-6xl font-bold my-4 transition-colors duration-300" [ngClass]="{
-                'text-red-500': saude <= 40,
-                'text-yellow-500': saude > 40 && saude <= 70,
-                'text-green-600': saude > 70
-              }">
-            {{ saude }}%
-          </h1>
-        </div>
+        <div *ngIf="veiculo">
+          <div
+            class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-4 gap-3"
+          >
+            <p class="text-lg md:text-xl font-semibold text-gray-700">
+              Saúde do seu {{ veiculo?.modelo || 'veículo' }}
+            </p>
 
-        <div class="mt-2">
-          <div class="w-full h-4 md:h-6 rounded-full relative bg-gray-200 overflow-hidden">
-            <div class="h-full rounded-full absolute top-0 left-0 transition-all duration-1000 ease-out" [style.width.%]="saude" [ngClass]="{
-                   'bg-red-500': saude <= 40,
-                   'bg-yellow-500': saude > 40 && saude <= 70,
-                   'bg-green-600': saude > 70
-                 }">
-            </div>
+            <button
+              (click)="irParaForm()"
+              class="w-full sm:w-auto bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition font-medium text-sm"
+            >
+              Editar Veículo
+            </button>
           </div>
 
-          <div class="flex justify-between text-xs md:text-sm text-gray-500 mt-2 font-medium">
-            <p>0%</p>
-            <p>50%</p>
-            <p>100%</p>
+          <div class="flex justify-center">
+            <h1
+              class="text-5xl md:text-6xl font-bold my-4 transition-colors duration-300"
+              [ngClass]="{
+                'text-red-500': saude <= 40,
+                'text-yellow-500': saude > 40 && saude <= 70,
+                'text-green-600': saude > 70,
+              }"
+            >
+              {{ saude }}%
+            </h1>
+          </div>
+
+          <div class="mt-2">
+            <div class="w-full h-4 md:h-6 rounded-full relative bg-gray-200 overflow-hidden">
+              <div
+                class="h-full rounded-full absolute top-0 left-0 transition-all duration-1000 ease-out"
+                [style.width.%]="saude"
+                [ngClass]="{
+                  'bg-red-500': saude <= 40,
+                  'bg-yellow-500': saude > 40 && saude <= 70,
+                  'bg-green-600': saude > 70,
+                }"
+              ></div>
+            </div>
+
+            <div class="flex justify-between text-xs md:text-sm text-gray-500 mt-2 font-medium">
+              <p>0%</p>
+              <p>50%</p>
+              <p>100%</p>
+            </div>
           </div>
         </div>
       </div>
     </div>
 
     <div class="mt-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 w-full">
-
-      <div class="bg-white p-4 border border-gray-200 rounded-xl flex flex-col justify-between h-32 shadow-sm">
+      <div
+        class="bg-white p-4 border border-gray-200 rounded-xl flex flex-col justify-between h-32 shadow-sm"
+      >
         <div>
           <h1 class="text-3xl md:text-4xl font-bold text-blue-600 truncate">
             {{ veiculo?.quilometragem ?? '-' }}
@@ -209,21 +88,27 @@
         </div>
       </div>
 
-      <div class="bg-white p-4 border border-gray-200 rounded-xl flex flex-col justify-between h-32 shadow-sm">
+      <div
+        class="bg-white p-4 border border-gray-200 rounded-xl flex flex-col justify-between h-32 shadow-sm"
+      >
         <div class="text-3xl md:text-4xl font-bold text-blue-600 truncate">
           {{ getDias(veiculo?.ult_troca_oleo?.[0]) }}
         </div>
         <p class="text-gray-500 text-sm md:text-base font-medium">Dias desde troca de óleo</p>
       </div>
 
-      <div class="bg-white p-4 border border-gray-200 rounded-xl flex flex-col justify-between h-32 shadow-sm">
+      <div
+        class="bg-white p-4 border border-gray-200 rounded-xl flex flex-col justify-between h-32 shadow-sm"
+      >
         <div class="text-3xl md:text-4xl font-bold text-gray-700 truncate">
           {{ veiculo?.alerta_painel?.length ?? 0 }}
         </div>
         <p class="text-gray-500 text-sm md:text-base font-medium">Alertas no Painel</p>
       </div>
 
-      <div class="bg-white p-4 border border-gray-200 rounded-xl flex flex-col justify-between h-32 shadow-sm">
+      <div
+        class="bg-white p-4 border border-gray-200 rounded-xl flex flex-col justify-between h-32 shadow-sm"
+      >
         <div class="text-3xl md:text-4xl font-bold text-blue-600 truncate">
           {{ recomendacoes.length > 0 ? recomendacoes.length : '-' }}
         </div>
@@ -233,14 +118,28 @@
   </section>
 
   <section class="max-w-[1100px] m-auto px-4 md:px-0">
-    <div class="animate-slide-up mt-6" style="animation-delay: 100ms;">
+    <div class="animate-slide-up mt-6" style="animation-delay: 100ms">
       <div class="rounded-xl border bg-white shadow-sm hover:shadow-md transition-all duration-200">
-
         <div class="flex flex-col space-y-1.5 p-4 md:p-6 border-b">
-          <h3 class="text-lg md:text-xl font-semibold leading-none tracking-tight flex items-center gap-2 text-gray-800">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-clipboard-list h-5 w-5 text-blue-600">
+          <h3
+            class="text-lg md:text-xl font-semibold leading-none tracking-tight flex items-center gap-2 text-gray-800"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="lucide lucide-clipboard-list h-5 w-5 text-blue-600"
+            >
               <rect width="8" height="4" x="8" y="2" rx="1" ry="1"></rect>
-              <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+              <path
+                d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"
+              ></path>
               <path d="M12 11h4"></path>
               <path d="M12 16h4"></path>
               <path d="M8 11h.01"></path>
@@ -252,26 +151,62 @@
 
         <div class="p-4 md:p-6 space-y-3">
           <ng-container *ngFor="let r of recomendacoes; let i = index">
-            <div class="flex flex-col sm:flex-row sm:items-center gap-3 p-4 rounded-lg border-l-4 cursor-pointer transition-all duration-200 hover:opacity-90 shadow-sm" [ngClass]="{
-                  'bg-red-50 border-l-red-500': r.tipo === 'danger',
-                  'bg-yellow-50 border-l-yellow-500': r.tipo === 'warning',
-                  'bg-green-50 border-l-green-500': r.tipo === 'good'
-                 }" [style.animation-delay]="getDelay(i)">
-
+            <div
+              class="flex flex-col sm:flex-row sm:items-center gap-3 p-4 rounded-lg border-l-4 cursor-pointer transition-all duration-200 hover:opacity-90 shadow-sm"
+              [ngClass]="{
+                'bg-red-50 border-l-red-500': r.tipo === 'danger',
+                'bg-yellow-50 border-l-yellow-500': r.tipo === 'warning',
+                'bg-green-50 border-l-green-500': r.tipo === 'good',
+              }"
+              [style.animation-delay]="getDelay(i)"
+            >
               <div class="flex-1 min-w-0">
                 <p class="font-bold text-gray-900 truncate text-base">{{ r.titulo }}</p>
                 <p class="text-sm text-gray-600 mt-1 sm:mt-0">{{ r.detalhe }}</p>
               </div>
 
               <div class="hidden sm:block">
-                <svg *ngIf="r.tipo === 'danger'" class="w-5 h-5 text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                <svg
+                  *ngIf="r.tipo === 'danger'"
+                  class="w-5 h-5 text-red-500"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"
+                  />
                 </svg>
-                <svg *ngIf="r.tipo === 'warning'" class="w-5 h-5 text-yellow-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                <svg
+                  *ngIf="r.tipo === 'warning'"
+                  class="w-5 h-5 text-yellow-500"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                  />
                 </svg>
-                <svg *ngIf="r.tipo === 'good'" class="w-5 h-5 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                <svg
+                  *ngIf="r.tipo === 'good'"
+                  class="w-5 h-5 text-green-500"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M5 13l4 4L19 7"
+                  />
                 </svg>
               </div>
             </div>
@@ -288,7 +223,18 @@
   <section class="max-w-[1100px] m-auto px-4 md:px-0">
     <div class="rounded-xl border bg-white p-4 md:p-6 shadow-sm mt-6">
       <h3 class="text-lg md:text-xl font-semibold flex items-center gap-2 mb-4 text-gray-800">
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-blue-600">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="20"
+          height="20"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="text-blue-600"
+        >
           <path d="M19 12h2" />
           <path d="M3 12h2" />
           <path d="m5.6 5.6 1.4 1.4" />
@@ -305,13 +251,23 @@
 
       <div class="space-y-3">
         <div class="flex flex-col sm:flex-row gap-3">
-          <input type="number" placeholder="Digite a quilometragem atual" [(ngModel)]="kmInput" class="flex w-full rounded-lg border border-gray-300 px-4 py-3 text-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition" />
+          <input
+            type="number"
+            placeholder="Digite a quilometragem atual"
+            [(ngModel)]="kmInput"
+            class="flex w-full rounded-lg border border-gray-300 px-4 py-3 text-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition"
+          />
 
-          <button class="h-auto py-3 sm:py-0 rounded-lg px-8 bg-blue-600 hover:bg-blue-700 text-white font-semibold transition shadow-sm w-full sm:w-auto" (click)="atualizarKm()">
+          <button
+            class="h-auto py-3 sm:py-0 rounded-lg px-8 bg-blue-600 hover:bg-blue-700 text-white font-semibold transition shadow-sm w-full sm:w-auto"
+            (click)="atualizarKm()"
+          >
             Atualizar
           </button>
         </div>
-        <p class="text-sm text-gray-500">Isso recalibra sua barra de saúde e todos os alertas de manutenção.</p>
+        <p class="text-sm text-gray-500">
+          Isso recalibra sua barra de saúde e todos os alertas de manutenção.
+        </p>
       </div>
     </div>
   </section>
